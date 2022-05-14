@@ -24,13 +24,14 @@ def submit():
         'type': 'search',
         'search_term': 'baby formula',
         'category_id': '5427',
-        'customer_zipcode': zipCode
+        'customer_zipcode': zipCode,
+        'pages' :'1'
         }      
         
         # make the http GET request to BlueCart API
         url = requests.get('https://api.bluecartapi.com/request', params)
         
-        json_result = json.loads(url)
+        json_result = json.dumps(url.json())
         print('Store ID: ["store_id"]')            
         return render_template('results.html')
     
